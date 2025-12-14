@@ -1,0 +1,13 @@
+{
+	"name": "@drdv/my-first-npm-package",
+	"version": "1.0.1",
+	"type": "module",
+	"description": "Learning about the npm ecosystem",
+	"main": "src/main.js",
+	"scripts": {
+		"my-start": "node src/main.js"
+	},
+	"keywords": [],
+	"author": "Dimitar Dimitrov",
+	"license": "ISC"
+}
