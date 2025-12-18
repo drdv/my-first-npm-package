@@ -1,4 +1,27 @@
-# How to create an `npm` package
+# Learning JavaScript
+
+## Emacs setup
+
++ `sudo npm install -g typescript-language-server typescript`
++ `M-x treesit-install-language-grammar`
+  + `javascript` (at tag `v0.23.1`)
+  + `js-doc` (at tag `v0.23.2`)
+
++ Minimal config:
+```
+(use-package eglot
+	:defer t
+	:bind
+	(:map eglot-mode-map
+		  ("C-c r" . eglot-rename))
+	:hook ((js-ts-mode
+			.
+			(lambda ()
+			  (eglot-ensure)
+			  (company-mode)))))
+```
+
+## How to create an `npm` package
 
 + Create an npm [account](https://www.npmjs.com/settings/drdv/profile) and activate 2FA
 + `mkdir my-first-npm-package && cd my-first-npm-package`
