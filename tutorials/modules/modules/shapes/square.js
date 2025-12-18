@@ -1,18 +1,20 @@
+import Shape from "./shape.js"
+
 function random(lb, ub) {
 	return Math.floor(Math.random() * (ub - lb)) + lb;
 }
 
-class Square {
+class Square extends Shape {
 	constructor(x, y, length, color) {
+		super(color);
 		this.x = x;
 		this.y = y;
 		this.length = length;
-		this.color = color;
 		this.name = "square";
 	}
 
 	draw(ctx) {
-		ctx.fillStyle = this.color;
+		super.draw(ctx);
 		ctx.fillRect(this.x, this.y, this.length, this.length);
 	}
 
@@ -35,16 +37,5 @@ class Square {
 	}
 }
 
-function fillReport(square, reportList) {
-	let areaItem = document.createElement('li');
-	areaItem.textContent = `${square.name} area is ${square.area}px squared.`
-	reportList.appendChild(areaItem);
-
-	let perimeterItem = document.createElement('li');
-	perimeterItem.textContent = `${square.name} perimeter is ${square.perimeter}px.`
-
-	reportList.appendChild(perimeterItem);
-}
-
-export { fillReport };
 export default Square;
+export { random };
