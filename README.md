@@ -1,5 +1,9 @@
 # Learning JavaScript
 
+## Links
+
++ A clear [explanation](https://javascript.info/async) of async
+
 ## Emacs setup
 
 + `sudo npm install -g typescript-language-server typescript`

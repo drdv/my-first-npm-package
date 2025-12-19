@@ -8,9 +8,15 @@
           border: 1px solid black;
       }
     </style>
+	<!-- see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps -->
+	<script type="importmap">{"imports": {"canvas": "./modules/canvas.js"}}</script>
     <script type="module" src="main.js"></script>
   </head>
   <body>
-
+	<div id="console"></div>
+    <script>
+	  console = document.getElementById("console");
+	  console.innerHTML += "Loading normal script (should load first)<br>";
+																		  </script>
   </body>
 </html>

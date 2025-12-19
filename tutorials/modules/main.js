@@ -1,5 +1,10 @@
+// module scripts are deferred and wait until the HTML document is ready (including
+// normal scripts)
+console = document.getElementById("console");
+console.innerHTML += "Loading main.js<br>";
+
 import colors from "./modules/colors.js";
-import { create as createCanvas } from "./modules/canvas.js";
+import { create as createCanvas } from "canvas"; // see <script type="importmap"> in HTML
 import { Square, Circle } from "./modules/shapes.js";
 import * as shapes from "./modules/shapes.js";
 import createReportList, { fillReport } from "./modules/report.js";
@@ -19,6 +24,10 @@ let circle = new Circle(200, 50, 20, "green");
 circle.draw(canvasContainer.ctx);
 fillReport(circle, reportList);
 
+const divMetaInfo = document.createElement("div");
+divMetaInfo.innerText = import.meta.url;
+canvasContainer.div.appendChild(divMetaInfo);
+
 // dynamic import
 button.addEventListener("click", () => {
 	import('./modules/shapes.js').then((Module) => {
@@ -29,6 +38,6 @@ button.addEventListener("click", () => {
 			colors.red
 		);
 		circle.draw(canvasContainer.ctx);
-		fillReport(circle, reportList);
+		fillReport(circle, reportList, true);
 	})
 });
